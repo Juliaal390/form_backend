@@ -6,7 +6,11 @@ const Post = require('./models/Posts');
 
 
 //configura o handlebars como template engine de uma aplicação express
-app.engine('handlebars', handlebars.engine({defaultLayout: 'main'})) //importamos o template
+app.engine('handlebars', handlebars.engine({defaultLayout: 'main',  runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+
+    allowProtoMethodsByDefault: true,
+}})) //importamos o template
 app.set('view engine', 'handlebars') //configura ele como template
 
 //bodyparser
@@ -15,7 +19,10 @@ app.use(bodyParser.json());
 
 //
 app.get('/', (req, res)=>{
-    res.render('formulario')
+    Post.findAll().then((postsaseremexibidos)=>{ //exibir posts
+        res.render('formulario', {posts: postsaseremexibidos})
+    })
+    
 })
 
 app.post('/enviado', (req, res)=>{   

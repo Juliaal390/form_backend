@@ -4,3 +4,14 @@
     <textarea name="conteudo" placeholder="conteudo"></textarea>
     <button type="submit">Cadastrar</button>
 </form>
+
+<div>
+    <h2>LISTA DE POSTS</h2>
+    {{#each posts}}
+    <p>{{titulo}}</p>
+    <p>{{conteudo}}</p>
+    <p>{{createdAt}}</p>
+
+    {{/each}}
+
+</div>
