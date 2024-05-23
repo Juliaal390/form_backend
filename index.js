@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 //
 app.get('/', (req, res)=>{
-    Post.findAll().then((postsaseremexibidos)=>{ //exibir posts
+    Post.findAll({order: [['id', 'DESC']]}).then((postsaseremexibidos)=>{ //exibir posts
         res.render('formulario', {posts: postsaseremexibidos})
     })
     
