@@ -36,6 +36,15 @@ app.post('/enviado', (req, res)=>{
     })
 })
 
+
+app.get('/delete/:id', (req, res)=>{
+    Post.destroy({where: {'id': req.params.id}}).then(()=>{
+        res.redirect("/")
+    }).catch((erro)=>{
+        res.send("Não foi possivel apagar o seu post : "+erro)
+    }) 
+});  
+
 app.listen(3000, () => {
     console.log('Servidor rodando'); 
 }); 

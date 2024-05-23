@@ -7,11 +7,13 @@
 
 <div>
     <h2>LISTA DE POSTS</h2>
-    {{#each posts}}
-    <p>{{titulo}}</p>
+{{#each posts}} 
+    <small>{{createdAt}}</small>
+    <h1>{{titulo}}</h1>
     <p>{{conteudo}}</p>
-    <p>{{createdAt}}</p>
+    <a href="/delete/{{id}}"><button>Apagar</button></a>
+    <hr>
 
-    {{/each}}
+{{/each}}
 
 </div>
